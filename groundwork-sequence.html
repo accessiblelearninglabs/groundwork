@@ -10,7 +10,8 @@
   :root{--paper:#fff;--ink:#43525a;--ink-strong:#303e44;--stone:#8a959b;--accent:#475f6a;--hair:#e2e6e8;--hair-soft:#eef1f2;--panel:#f7f8f9;}
   *{box-sizing:border-box}
   body{margin:0;font-family:'Asap',system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.6;-webkit-font-smoothing:antialiased}
-  .wrap{max-width:1080px;margin:0 auto;padding:8px 16px 24px}
+  .wrap{max-width:1080px;margin:0 auto;padding:8px 24px 24px 16px}
+  a{color:var(--accent);text-decoration:underline;text-underline-offset:.15em} a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
   .top{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:0 0 .6rem}
   .eyebrow{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--stone);margin:0}
   .all{font:inherit;font-size:.8rem;letter-spacing:.06em;color:var(--accent);background:none;border:0;padding:0;cursor:pointer;text-decoration:underline;text-underline-offset:.15em}
@@ -32,7 +33,6 @@
   .body p{margin:0 0 .8rem;max-width:74ch}
   .lab{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--stone);margin:.9rem 0 .2rem}
   .src{font-size:.86rem;color:var(--stone)}
-  .alt{font-size:.86rem;margin:16px 0 0}
   @media (max-width:600px){.trig{grid-template-columns:44px 1fr 20px;gap:0 12px}.c{width:44px;height:44px}.body{padding:6px 16px 20px 16px}}
   @media (prefers-reduced-motion:reduce){.c,.chev{transition:none}}
 </style>
@@ -55,7 +55,7 @@
         <p class="lab">The process</p><p>The gap between what people do and what is needed is examined for its causes before anything is designed: incentives, tools, information, and conditions as well as skill. The population concerned is named specifically, in their setting, because a resource built for an average learner is built for no one. Most performance problems are not knowledge problems, and finding that out first is the largest saving the method makes.</p>
         <p class="lab">The artefact</p><p>A one-page diagnosis: the gap, the population, and what learning can and cannot change.</p>
         <p class="lab">What it protects</p><p>Nothing is built for a problem that learning cannot solve, and nothing is built without naming who it is for.</p>
-        <p class="src">Sources: references 2, 4 on the Groundwork page.</p>
+        <p class="src">Sources: reference numbers 2, 4 on the Groundwork page.</p>
       </div>
     </div>
   </div>
@@ -70,7 +70,7 @@
         <p class="lab">The process</p><p>Scope is set by working backward from what a person must be able to do afterwards, and by what working memory can carry at once — not by how much there is to say. What is deliberately left out is written down, because it is the decision most often revisited and the one most often lost.</p>
         <p class="lab">The artefact</p><p>A scope statement, with what is deliberately left out.</p>
         <p class="lab">What it protects</p><p>The resource is short enough to be used and complete enough to be trusted.</p>
-        <p class="src">Sources: references 5, 6 on the Groundwork page.</p>
+        <p class="src">Sources: reference numbers 5, 6 on the Groundwork page.</p>
       </div>
     </div>
   </div>
@@ -85,7 +85,7 @@
         <p class="lab">The process</p><p>Experts reliably omit the steps they no longer notice performing. Structured elicitation recovers them. Every claim in the resource is traced to a named source, so that it can be checked by someone other than its author — and so that the resource can be corrected when the field moves.</p>
         <p class="lab">The artefact</p><p>An expert-collaboration plan and a source list.</p>
         <p class="lab">What it protects</p><p>The resource says what is known, attributes it, and can be corrected.</p>
-        <p class="src">Sources: references 7, 8 on the Groundwork page.</p>
+        <p class="src">Sources: reference numbers 7, 8 on the Groundwork page.</p>
       </div>
     </div>
   </div>
@@ -100,7 +100,7 @@
         <p class="lab">The process</p><p>Register and reading level are judged against the population named in step one. The text is drafted, tested with people from that population, and revised on what they did with it rather than on what they said about it.</p>
         <p class="lab">The artefact</p><p>A drafted resource in plain language, at the level of its population.</p>
         <p class="lab">What it protects</p><p>The resource can be read by the people it is for.</p>
-        <p class="src">Sources: references 9 on the Groundwork page.</p>
+        <p class="src">Sources: reference numbers 9 on the Groundwork page.</p>
       </div>
     </div>
   </div>
@@ -115,7 +115,7 @@
         <p class="lab">The process</p><p>Media are chosen for what they carry, not for what is available: words and pictures together where they help, and nothing that competes with them. Accessibility is a property of the first draft, tested against a published standard and with assistive technology, not a review at the end.</p>
         <p class="lab">The artefact</p><p>A production standard: format, media, and accessibility from the first draft.</p>
         <p class="lab">What it protects</p><p>The resource meets the floor of access before it is offered.</p>
-        <p class="src">Sources: references 3, 10, 16 on the Groundwork page.</p>
+        <p class="src">Sources: reference numbers 3, 10, 16 on the Groundwork page.</p>
       </div>
     </div>
   </div>
@@ -130,7 +130,7 @@
         <p class="lab">The process</p><p>The resource is reviewed against a named checklist, and the review is recorded: what was checked, by whom, and what changed. A review that leaves no record was not a review, and cannot be repeated.</p>
         <p class="lab">The artefact</p><p>A quality-assurance record against a named checklist.</p>
         <p class="lab">What it protects</p><p>Quality is demonstrated, not asserted.</p>
-        <p class="src">Sources: references 11 on the Groundwork page.</p>
+        <p class="src">Sources: reference numbers 11 on the Groundwork page.</p>
       </div>
     </div>
   </div>
@@ -145,7 +145,7 @@
         <p class="lab">The process</p><p>Every resource collects something, asserts something, and is offered to someone. What it owes under privacy law, research ethics, accessibility legislation, and the rights of the people it concerns is written down before release. This step is the practitioner's own; no part of it is delegated.</p>
         <p class="lab">The artefact</p><p>A one-page obligations register.</p>
         <p class="lab">What it protects</p><p>The people the resource concerns are protected by design, not by afterthought.</p>
-        <p class="src">Sources: references 12, 13, 14 on the Groundwork page.</p>
+        <p class="src">Sources: reference numbers 12, 13, 14 on the Groundwork page.</p>
       </div>
     </div>
   </div>
@@ -160,12 +160,11 @@
         <p class="lab">The process</p><p>A resource is evaluated on whether something changed in how people work, not on whether they finished it. It is designed to be revised when the evidence says so. The update cycle names its sources of change, and the person who holds it next — because most resources are abandoned, not retired.</p>
         <p class="lab">The artefact</p><p>An update cycle, and the case for the resource written for whoever holds it next.</p>
         <p class="lab">What it protects</p><p>The resource stays true after the designer has left.</p>
-        <p class="src">Sources: references 15 on the Groundwork page.</p>
+        <p class="src">Sources: reference numbers 15 on the Groundwork page.</p>
       </div>
     </div>
   </div>
   </div>
-  <p class="alt">A <a href="groundwork-sequence-linear.html">screen reader and keyboard-optimised version of this graphic</a> is also available.</p>
 </div>
 <script>
 (function(){
@@ -183,6 +182,21 @@
   });
   all.addEventListener('click',()=>{ const open=all.getAttribute('aria-expanded')!=='true'; trigs.forEach(t=>setOpen(t,open)); });
   if(location.hash){ const t=document.querySelector('[aria-controls="'+location.hash.slice(1)+'"]'); if(t){ setOpen(t,true); t.focus(); } }
+})();
+
+/* Report height to the parent page so an embed can resize with the accordion. */
+(function(){
+  function post(){
+    var d=document.documentElement, b=document.body;
+    var hgt=Math.max(b.scrollHeight,b.offsetHeight,d.scrollHeight,d.offsetHeight);
+    try{ parent.postMessage({groundworkSequenceHeight:hgt},'*'); }catch(e){}
+  }
+  window.addEventListener('load',post);
+  window.addEventListener('resize',post);
+  document.addEventListener('click',function(){ setTimeout(post,60); });
+  document.addEventListener('keyup',function(){ setTimeout(post,60); });
+  if(window.ResizeObserver){ new ResizeObserver(post).observe(document.body); }
+  setTimeout(post,150);
 })();
 </script>
 </body>
