@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Groundwork · The Sequence · Andrea Robin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{--paper:#fff;--ink:#43525a;--ink-strong:#303e44;--stone:#8a959b;--accent:#475f6a;--hair:#e2e6e8;--hair-soft:#eef1f2;--panel:#f7f8f9;}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:'Asap',system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1080px;margin:0 auto;padding:8px 16px 24px}
+  .eyebrow{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--stone);margin:0 0 .6rem}
+  .track{position:relative;display:grid;grid-template-columns:repeat(8,1fr);gap:0;align-items:end;margin:10px 0 6px}
+  .track::before{content:"";position:absolute;left:6%;right:6%;top:50%;border-top:1px dashed var(--hair);z-index:0}
+  .node{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:.45rem;padding:0;background:none;border:0;cursor:pointer;font:inherit;color:var(--ink-strong)}
+  .node:nth-child(even){transform:translateY(-34px)}
+  .node .c{width:74px;height:74px;border-radius:50%;border:1.5px solid var(--ink-strong);display:grid;place-items:center;background:var(--paper);transition:background .25s,color .25s,transform .25s;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;text-align:center;padding:6px;line-height:1.15}
+  .node .l{font-size:.72rem;letter-spacing:.06em;color:var(--stone);text-align:center;max-width:9.5rem;line-height:1.25}
+  .node:hover .c,.node:focus-visible .c{transform:scale(1.06)}
+  .node:focus-visible{outline:none} .node:focus-visible .c{box-shadow:0 0 0 3px var(--paper),0 0 0 5px var(--accent)}
+  .node[aria-pressed="true"] .c{background:var(--ink-strong);color:var(--paper)}
+  .hint{text-align:center;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--stone);margin:22px 0 8px}
+  .panel{border:1px solid var(--hair-soft);background:var(--panel);padding:22px 24px;min-height:200px;max-width:100%}
+  .panel h2{font-size:1.25rem;font-weight:600;color:var(--ink-strong);margin:0 0 .2rem}
+  .panel .q{font-style:italic;font-weight:300;font-size:1.05rem;margin:0 0 .9rem}
+  .panel p{margin:0 0 .8rem;max-width:74ch}
+  .panel .lab{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--stone);margin:.9rem 0 .2rem}
+  .panel .src{font-size:.86rem;color:var(--stone)}
+  .nav{display:flex;justify-content:space-between;gap:12px;margin-top:14px}
+  .nav button{font:inherit;font-size:.86rem;color:var(--accent);background:none;border:1px solid var(--hair);padding:.45rem .8rem;cursor:pointer}
+  .nav button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .nav button[disabled]{opacity:.4;cursor:default}
+  .alt{font-size:.86rem;margin:16px 0 0}
+  @media (max-width:760px){.track{grid-template-columns:repeat(4,1fr);row-gap:26px}.node:nth-child(even){transform:none}.track::before{display:none}.node .c{width:64px;height:64px}}
+  @media (prefers-reduced-motion:reduce){.node .c{transition:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="eyebrow">Groundwork · The sequence</p>
+  <div class="track" role="tablist" aria-label="The eight steps of Groundwork" id="track"></div>
+  <p class="hint" id="hint">Select a step to read its process</p>
+  <div class="panel" id="panel" role="region" aria-live="polite" aria-labelledby="panel-h">
+    <h2 id="panel-h">Eight steps, eight artefacts, one working file</h2>
+    <p>Each step asks one question, follows a process developed through practice, and leaves an artefact the next step depends on. Select a step above, or use the arrow keys to move between them.</p>
+  </div>
+  <p class="alt">A <a href="groundwork-sequence-linear.html">screen reader and keyboard-optimised version of this graphic</a> is also available.</p>
+</div>
+<script>
+const STEPS=[{"k": "diagnose", "n": "1", "t": "Diagnose", "q": "Is this a learning problem, and for whom?", "p": "The gap between what people do and what is needed is examined for its causes before anything is designed: incentives, tools, information, and conditions as well as skill. The population concerned is named specifically, in their setting, because a resource built for an average learner is built for no one. Most performance problems are not knowledge problems, and finding that out first is the largest saving the method makes.", "a": "A one-page diagnosis: the gap, the population, and what learning can and cannot change.", "g": "Nothing is built for a problem that learning cannot solve, and nothing is built without naming who it is for.", "s": "2, 4"}, {"k": "scope", "n": "2", "t": "Scope", "q": "What is the smallest resource that would work?", "p": "Scope is set by working backward from what a person must be able to do afterwards, and by what working memory can carry at once — not by how much there is to say. What is deliberately left out is written down, because it is the decision most often revisited and the one most often lost.", "a": "A scope statement, with what is deliberately left out.", "g": "The resource is short enough to be used and complete enough to be trusted.", "s": "5, 6"}, {"k": "experts", "n": "3", "t": "Work with experts", "q": "What do the people who know this actually know, and how will it be checked?", "p": "Experts reliably omit the steps they no longer notice performing. Structured elicitation recovers them. Every claim in the resource is traced to a named source, so that it can be checked by someone other than its author — and so that the resource can be corrected when the field moves.", "a": "An expert-collaboration plan and a source list.", "g": "The resource says what is known, attributes it, and can be corrected.", "s": "7, 8"}, {"k": "write", "n": "4", "t": "Write", "q": "How does it read to the person who needs it?", "p": "Register and reading level are judged against the population named in step one. The text is drafted, tested with people from that population, and revised on what they did with it rather than on what they said about it.", "a": "A drafted resource in plain language, at the level of its population.", "g": "The resource can be read by the people it is for.", "s": "9"}, {"k": "form", "n": "5", "t": "Visual language and production", "q": "What does the form add that the words cannot?", "p": "Media are chosen for what they carry, not for what is available: words and pictures together where they help, and nothing that competes with them. Accessibility is a property of the first draft, tested against a published standard and with assistive technology, not a review at the end.", "a": "A production standard: format, media, and accessibility from the first draft.", "g": "The resource meets the floor of access before it is offered.", "s": "3, 10, 16"}, {"k": "review", "n": "6", "t": "Review", "q": "Does it meet the standards the field holds in common?", "p": "The resource is reviewed against a named checklist, and the review is recorded: what was checked, by whom, and what changed. A review that leaves no record was not a review, and cannot be repeated.", "a": "A quality-assurance record against a named checklist.", "g": "Quality is demonstrated, not asserted.", "s": "11"}, {"k": "obligations", "n": "7", "t": "Obligations", "q": "What does this resource owe — privacy, ethics, rights, access?", "p": "Every resource collects something, asserts something, and is offered to someone. What it owes under privacy law, research ethics, accessibility legislation, and the rights of the people it concerns is written down before release. This step is the practitioner's own; no part of it is delegated.", "a": "A one-page obligations register.", "g": "The people the resource concerns are protected by design, not by afterthought.", "s": "12, 13, 14"}, {"k": "current", "n": "8", "t": "Keep current", "q": "When will this be wrong, and who will know?", "p": "A resource is evaluated on whether something changed in how people work, not on whether they finished it. It is designed to be revised when the evidence says so. The update cycle names its sources of change, and the person who holds it next — because most resources are abandoned, not retired.", "a": "An update cycle, and the case for the resource written for whoever holds it next.", "g": "The resource stays true after the designer has left.", "s": "15"}];
+const track=document.getElementById('track'), panel=document.getElementById('panel');
+let current=-1;
+STEPS.forEach((s,i)=>{
+  const b=document.createElement('button'); b.type='button'; b.className='node'; b.setAttribute('role','tab');
+  b.setAttribute('aria-pressed','false'); b.setAttribute('aria-controls','panel'); b.id='tab-'+s.k; b.dataset.i=i;
+  b.innerHTML='<span class="c">'+s.n+'<br>'+s.t.split(' ')[0]+'</span><span class="l">'+s.t+'</span>';
+  b.addEventListener('click',()=>show(i));
+  b.addEventListener('keydown',e=>{
+    if(e.key==='ArrowRight'||e.key==='ArrowDown'){e.preventDefault();focusTab((i+1)%STEPS.length);}
+    if(e.key==='ArrowLeft'||e.key==='ArrowUp'){e.preventDefault();focusTab((i-1+STEPS.length)%STEPS.length);}
+    if(e.key==='Home'){e.preventDefault();focusTab(0);} if(e.key==='End'){e.preventDefault();focusTab(STEPS.length-1);}
+  });
+  track.appendChild(b);
+});
+function focusTab(i){track.children[i].focus(); show(i);}
+function show(i){
+  current=i; const s=STEPS[i];
+  [...track.children].forEach((b,j)=>{b.setAttribute('aria-pressed',j===i?'true':'false'); b.setAttribute('aria-selected',j===i?'true':'false'); b.tabIndex=j===i?0:-1;});
+  panel.innerHTML='<h2 id="panel-h">Step '+s.n+' · '+s.t+'</h2><p class="q">'+s.q+'</p>'+
+    '<p class="lab">The process</p><p>'+s.p+'</p>'+
+    '<p class="lab">The artefact</p><p>'+s.a+'</p>'+
+    '<p class="lab">What it protects</p><p>'+s.g+'</p>'+
+    '<p class="src">Sources: references '+s.s+' on the Groundwork page.</p>'+
+    '<div class="nav"><button type="button" id="prev" '+(i===0?'disabled':'')+'>← Previous step</button><button type="button" id="next" '+(i===STEPS.length-1?'disabled':'')+'>Next step →</button></div>';
+  const p=document.getElementById('prev'), n=document.getElementById('next');
+  if(p) p.addEventListener('click',()=>focusTab(i-1)); if(n) n.addEventListener('click',()=>focusTab(i+1));
+}
+[...track.children].forEach((b,j)=>b.tabIndex=j===0?0:-1);
+</script>
+</body>
+</html>
